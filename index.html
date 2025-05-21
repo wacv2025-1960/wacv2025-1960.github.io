@@ -83,7 +83,7 @@
     </div>
   <section class="overview">
     <div class="container is-max-desktop">
-      <p>Optimized Minimal 3D Gaussian Splatting (OMG) focuses on minimizing storage requirements while using only a minimal number of Gaussian primitives. By proposing an efficient attribute representation, including sub-vector quantization, we achieve <b>scene representation (>27 PSNR on Mip-NeRF 360 Dataset) with only 4.1 MB of storage while achieving 600+ FPS rendering!</b></p>
+      <p>Few-shot segmentation (FSS) benchmarks typically assume the reference class appears in every target image, but in real-world scenarios the object may be partially visible, occluded, or entirely absent. To address this, we introduce the Open-World FSS Benchmark by re-partitioning PASCAL VOC, Pascal-Context, COCO-Stuff, and iSAID into negative, easy, and hard subsets per class based on presence and entropy. We also propose a training-free prototype-debiasing module that projects support prototypes away from background directions and restores fine boundaries via joint bilateral upsampling. Simply inserting this lightweight module into existing FSS models—without any fine-tuning—yields consistent accuracy improvements on both the Open-World and standard FSS benchmarks.</b></p>
       <div>
         <img class="overview-img" src="./images/final_fig/fig1-1.png" alt="Overview Figure">
       </div>
@@ -94,17 +94,18 @@
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Architecture</h2>
+  
       <div class="content has-text-justified">
+        <p>We introduce a Prototype-Debiasing (PD) module for open-world FSS that works in three stages:</p>
+        <ul>
+          <li><strong>Debiased Prototype Construction</strong> – extract spatial and global features from a ViT backbone and purify the foreground prototype by removing background and class bias.</li>
+          <li><strong>Orthogonal Similarity Estimation</strong> – compute an orthogonal cosine map from the debiased features to isolate high-confidence foreground regions.</li>
+          <li><strong>Refinement & Prompt-based Segmentation</strong> – sharpen the similarity map for precise boundaries, generate point prompts, and select final masks via graph-based filtering.</li>
+        </ul>
       </div>
-      <img width="100%" src="./images/fig_arch.jpg"></img>
-      <br><br>
-      <img width="100%" src="./images/fig_svq.jpg"></img>
-      <br><br>
-      <p>
-        OMG learns per-Gaussian geometric and appearance features, applying Sub-Vector Quantization (SVQ) to all of them. The SVQ-applied geometric attributes are used for rendering, while the space feature based on the Gaussian center position is integrated into the appearance features to define the final appearance.
-      </p>
-      <!-- / Abstract. -->
-    </div>
+  
+      <img width="100%" src="./images/final_fig/fig3-1.png" alt="Figure 3">
+  
     </div>
   </section>
 
