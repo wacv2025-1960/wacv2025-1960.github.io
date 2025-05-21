@@ -83,7 +83,7 @@
     </div>
   <section class="overview">
     <div class="container is-max-desktop">
-      <p>Few-shot segmentation (FSS) benchmarks typically assume the reference class appears in every target image, but in real-world scenarios the object may be partially visible, occluded, or entirely absent. To address this, we introduce the Open-World FSS Benchmark by re-partitioning PASCAL VOC, Pascal-Context, COCO-Stuff, and iSAID into negative, easy, and hard subsets per class based on presence and entropy. We also propose a training-free prototype-debiasing module that projects support prototypes away from background directions and restores fine boundaries via joint bilateral upsampling. Simply inserting this lightweight module into existing FSS models—without any fine-tuning—yields consistent accuracy improvements on both the Open-World and standard FSS benchmarks.</b></p>
+      <p>Few-shot segmentation (FSS) benchmarks typically assume the reference class appears in every target image, but in real-world scenarios the object may be partially visible, occluded, or entirely absent. To address this, we introduce the <strong>Open-World FSS Benchmark</strong> by re-partitioning PASCAL VOC, Pascal-Context, COCO-Stuff, and iSAID into negative, easy, and hard subsets per class based on presence and entropy. We also propose a training-free prototype-debiasing module that projects support prototypes away from background directions and restores fine boundaries via joint bilateral upsampling. Simply inserting this lightweight module into existing FSS models—without any fine-tuning—yields consistent accuracy improvements on both the Open-World and standard FSS benchmarks.</b></p>
       <div>
         <img class="overview-img" src="./images/final_fig/fig1-1.png" alt="Overview Figure">
       </div>
@@ -113,13 +113,12 @@
   
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Results</h2>
+      <h2 class="title is-3">Open-World FSS Benchmark</h2>
       <p>
-        OMG achieves remarkable efficiency alongside high performance, in terms of storage, rendering FPS, and training time.
+        We present the first benchmark that evaluates few-shot segmentation under presence uncertainty, introducing positive-easy, positive-hard, and negative subsets across four widely used datasets.
       </p>
-      <img width="100%" src="./images/fig_qual.jpg"></img>
-      <p align="center"><img width="65%" src="./images/tab_360.png"></img></p>
-      <img width="100%" src="./images/tab_tntdb.png"></img>
+      <img width="100%" src="./images/final_fig/fig2-1.png"></img>
+      
     <div class="content has-text-justified">
     </div>
   </div>
