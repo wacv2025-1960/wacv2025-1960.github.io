@@ -83,7 +83,7 @@
     </div>
   <section class="overview">
     <div class="container is-max-desktop">
-      <p>Few-shot segmentation (FSS) benchmarks typically assume the reference class appears in every target image, but in real-world scenarios the object may be partially visible, occluded, or entirely absent. To address this, we introduce the <strong>Open-World FSS Benchmark</strong> by re-partitioning PASCAL VOC, Pascal-Context, COCO-Stuff, and iSAID into negative, easy, and hard subsets per class based on presence and entropy. We also propose a training-free prototype-debiasing module that projects support prototypes away from background directions and restores fine boundaries via joint bilateral upsampling. Simply inserting this lightweight module into existing FSS models—without any fine-tuning—yields consistent accuracy improvements on both the Open-World and standard FSS benchmarks.</b></p>
+      <p>We present PU-FSS, a benchmark that partitions PASCAL VOC, PASCAL-Context, COCO-Stuff, and iSAID into positive-easy, positive-hard, and negative subsets to evaluate FSS under presence uncertainty. Alongside, we introduce a lightweight, training-free prototype-debiasing module that reduces background bias and sharpens boundaries via joint bilateral upsampling. Plugged into training-free generalist FSS models without fine-tuning, it consistently improves accuracy on both PU-FSS and standard FSS benchmarks.</b></p>
       <div>
         <img class="overview-img" src="./images/final_fig/fig1-1.png" alt="Overview Figure">
       </div>
@@ -116,7 +116,7 @@
       <h2 class="title is-3">Architecture</h2>
   
       <div class="content has-text-justified">
-        <p>We introduce a Prototype-Debiasing (PD) module for open-world FSS that works in three stages:</p>
+        <p>We introduce a Prototype-Debiasing (PD) module for PU-FSS that works in three stages:</p>
         <ul>
           <li><strong>Debiased Prototype Construction</strong> – extract spatial and global features from a ViT backbone and purify the foreground prototype by removing background and class bias.</li>
           <li><strong>Orthogonal Similarity Estimation</strong> – compute an orthogonal cosine map from the debiased features to isolate high-confidence foreground regions.</li>
@@ -133,7 +133,7 @@
   
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Open-World FSS Benchmark</h2>
+      <h2 class="title is-3">Presence-Uncertain FSS Benchmark</h2>
       <p>
         We present the first benchmark that evaluates few-shot segmentation under presence uncertainty, introducing positive-easy, positive-hard, and negative subsets across four widely used datasets.
       </p>
